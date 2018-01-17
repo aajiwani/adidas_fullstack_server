@@ -1,0 +1,41 @@
+{
+  "name": "Wishlist",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "image": {
+      "type": "string",
+      "format": "url"
+    },
+    "url": {
+      "type": "string",
+      "format": "url",
+      "required": true
+    },
+    "rating": {
+      "type": "number",
+      "default": 0
+    },
+    "reviews": {
+      "type": "number",
+      "default": 0
+    },
+    "price": {
+      "type": "string",
+      "default": "$0"
+    },
+    "subName": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
