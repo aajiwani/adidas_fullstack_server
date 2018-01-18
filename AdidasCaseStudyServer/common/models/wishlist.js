@@ -31,7 +31,6 @@ module.exports = function(Wishlist) {
   );
 
   Wishlist.removeByUrl = function(wishlistUrl, cb) {
-    console.log(wishlistUrl);
     Wishlist.find({where: {url: wishlistUrl}}, function(err, instance) {
       if (!instance.length) return cb(new Error("No record found!"));
       if (err) return cb(err);
