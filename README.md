@@ -2,10 +2,15 @@
 Full stack engineer case study
 
 ## A simple REST server:
-- [ ] Uses memory storage
-- [ ] Adding an article to the wishlist
-- [ ] Removing a article from the wishlist
-- [ ] Getting the wishlist (returns a list of articles)
+- [x] Uses memory storage
+- [x] Adding an article to the wishlist (POST: ```/Wishlists```)
+- [x] Removing a article from the wishlist (DELETE: ```/Wishlists/removeFromWishlist?url={url}```)
+- [x] Getting the wishlist (GET: ```/Wishlists```)
+
+## Server Notes:
+- All the apis fall under ```{host}/api```
+- The above mentioned endpoints are in the format of:
+    - ```({HTTP_VERB}: {ENDPOINT})```
 
 ## Tech stack:
 - LoopBack
@@ -17,3 +22,6 @@ Full stack engineer case study
 
 - To run the solution
     - ```node .```
+
+### Notes
+URL field in the data is used to identify an item from wishlist, hence the same is used to delete the item as well
