@@ -24,5 +24,8 @@ Full stack engineer case study
 - To run the solution
     - ```node .```
 
+- To test the solution
+    - ```npm run ci```
+
 ### Notes
 URL field in the data is used to identify an item from wishlist, hence the same is used to delete the item as well
