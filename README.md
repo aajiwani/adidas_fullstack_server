@@ -6,6 +6,7 @@ Full stack engineer case study
 - [x] Adding an article to the wishlist (POST: ```/Wishlists```)
 - [x] Removing a article from the wishlist (DELETE: ```/Wishlists/removeFromWishlist?url={url}```)
 - [x] Getting the wishlist (GET: ```/Wishlists```)
+- [x] Having test cases covered
 
 ## Server Notes:
 - All the apis fall under ```{host}/api```

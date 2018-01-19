@@ -8,7 +8,8 @@
   "scripts": {
     "lint": "eslint .",
     "start": "node .",
-    "posttest": "npm run lint && nsp check"
+    "test": "./node_modules/mocha/bin/mocha test/wishlist.test.js",
+    "ci": "export NODE_ENV=\"test\" && start-server-and-test start http://localhost:3000 test"
   },
   "dependencies": {
     "compression": "^1.0.3",
@@ -22,9 +23,13 @@
     "valid-url": "^1.0.9"
   },
   "devDependencies": {
+    "chai": "^4.1.2",
     "eslint": "^3.17.1",
     "eslint-config-loopback": "^8.0.0",
-    "nsp": "^2.1.0"
+    "mocha": "^5.0.0",
+    "nsp": "^2.1.0",
+    "start-server-and-test": "^1.0.0",
+    "supertest": "^3.0.0"
   },
   "repository": {
     "type": "",

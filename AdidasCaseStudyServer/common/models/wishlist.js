@@ -1,14 +1,14 @@
-"use strict";
+'use strict';
 
-const validUrl = require("valid-url");
+const validUrl = require('valid-url');
 
 module.exports = function(Wishlist) {
-  Wishlist.validatesPresenceOf("url");
-  Wishlist.validatesUniquenessOf("url", {
-    message: "url must be unique, while adding items in the wishlist",
+  Wishlist.validatesPresenceOf('url');
+  Wishlist.validatesUniquenessOf('url', {
+    message: 'url must be unique, while adding items in the wishlist',
   });
   Wishlist.validate(
-    "url",
+    'url',
     function(err) {
       if (this.url && this.url.length > 0) {
         if (!validUrl.isUri(this.url)) {
@@ -16,10 +16,10 @@ module.exports = function(Wishlist) {
         }
       }
     },
-    {message: "Bad URL supplied"}
+    {message: 'Bad URL supplied'}
   );
   Wishlist.validate(
-    "image",
+    'image',
     function(err) {
       if (this.image && this.image.length > 0) {
         if (!validUrl.isUri(this.image)) {
@@ -27,24 +27,24 @@ module.exports = function(Wishlist) {
         }
       }
     },
-    {message: "Bad URL supplied"}
+    {message: 'Bad URL supplied'}
   );
 
   Wishlist.removeByUrl = function(wishlistUrl, cb) {
     Wishlist.find({where: {url: wishlistUrl}}, function(err, instance) {
-      if (!instance.length) return cb(new Error("No record found!"));
+      if (!instance.length) return cb(new Error('No record found!'));
       if (err) return cb(err);
       instance[0].destroy(function(err2) {
         if (err2) return cb(err2);
-        var response = "Item deleted successfully";
+        var response = 'Item deleted successfully';
         cb(null, response);
       });
     });
   };
 
-  Wishlist.remoteMethod("removeByUrl", {
-    http: {path: "/removeFromWishlist", verb: "delete", "errorStatus": 400},
-    accepts: {arg: "url", type: "string", http: {source: "query"}},
-    returns: {arg: "message", type: "string"},
+  Wishlist.remoteMethod('removeByUrl', {
+    http: {path: '/removeFromWishlist', verb: 'delete', 'errorStatus': 400},
+    accepts: {arg: 'url', type: 'string', http: {source: 'query'}},
+    returns: {arg: 'message', type: 'string'},
   });
 };
